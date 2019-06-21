@@ -32,6 +32,7 @@
     "react": "^16.5.2",
     "react-adopt": "^0.6.0",
     "react-apollo": "^2.2.1",
+    "react-burger-menu": "^2.6.10",
     "react-dom": "^16.5.2",
     "react-stripe-checkout": "^2.6.3",
     "react-transition-group": "^2.5.0",
