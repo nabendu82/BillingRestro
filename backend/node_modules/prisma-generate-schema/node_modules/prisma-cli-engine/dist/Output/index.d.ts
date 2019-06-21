@@ -1,0 +1,54 @@
+import { Config } from '../Config';
+import StreamOutput from './StreamOutput';
+import { ActionBase } from './actions/ActionBase';
+import Prompter, { PromptOptions } from './Prompter';
+import { TableOptions } from './table';
+import { MigrationPrinter } from './migration';
+export declare const CustomColors: {
+    supports: any;
+    gray: (s: string) => string;
+    grey: (s: string) => string;
+    attachment: (s: string) => string;
+    addon: (s: string) => string;
+    configVar: (s: string) => string;
+    release: (s: string) => string;
+    cmd: (s: string) => string;
+    app: (s: string) => string;
+    prisma: (s: string) => string;
+};
+export declare class Output {
+    mock: boolean;
+    config: Config;
+    action: ActionBase;
+    stdout: StreamOutput;
+    stderr: StreamOutput;
+    prompter: Prompter;
+    prompt: any;
+    migration: MigrationPrinter;
+    charm: any;
+    constructor(config: Config);
+    readonly color: any;
+    log(data: any, ...args: any[]): void;
+    getStyledJSON(obj: any, subtle?: boolean): any;
+    done(...rest: void[]): Promise<void>;
+    debug(obj: string): void;
+    readonly errlog: string;
+    readonly autoupdatelog: string;
+    error(err: Error | string, exitCode?: number | false): Promise<void>;
+    isGraphQLError(err: any): any;
+    warn(err: Error | string, prefix?: string): void;
+    getErrorPrefix(fileName: string, type?: 'error' | 'warning'): string;
+    logError(err: Error | string): void;
+    printMarkdown(markdown: string): void;
+    oldprompt(name: string, options?: PromptOptions): Promise<string>;
+    table<T = {
+        height?: number;
+    }>(data: T[], options?: TableOptions<T>): any;
+    exit(code?: number): void;
+    filesTree(files: string[]): void;
+    tree(dirPath: string, padding?: boolean): void;
+    up(y?: number): void;
+    printPadded(arr1: string[][], spaceLeft?: number, spaceBetween?: number, header?: string[]): string;
+    getGraphQLErrorMessage(err: any): string;
+    getErrorMessage(err: any): string;
+}

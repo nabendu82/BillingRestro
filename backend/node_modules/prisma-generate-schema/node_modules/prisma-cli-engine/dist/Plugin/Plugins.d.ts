@@ -1,0 +1,32 @@
+import Plugin from './Plugin';
+import Lock from './Lock';
+import { Output } from '../Output/index';
+import { Config } from '../Config';
+import BuiltinPlugins from './BuiltInPlugins';
+import CorePlugins from './CorePlugins';
+import Cache, { CachedCommand, CachedTopic, Group } from './Cache';
+import { Command } from '../Command';
+import { Topic } from '../Topic';
+export default class Plugins {
+    builtin: BuiltinPlugins;
+    core: CorePlugins;
+    plugins: Plugin[];
+    cache: Cache;
+    out: Output;
+    lock: Lock;
+    loaded: boolean;
+    config: Config;
+    constructor(output: Output);
+    load(): Promise<void>;
+    readonly commands: CachedCommand[];
+    list(): Promise<Plugin[]>;
+    isPluginInstalled(name: string): boolean;
+    findPluginWithCommand(id: string): Promise<Plugin | undefined>;
+    findCommand(id: string): Promise<typeof Command | undefined>;
+    commandsForTopic(topic: string): Promise<Array<typeof Command>>;
+    subtopicsForTopic(id: string): Promise<CachedTopic[] | undefined>;
+    findTopic(id: string): Promise<typeof Topic | undefined>;
+    clearCache(...paths: string[]): void;
+    readonly topics: CachedTopic[];
+    readonly groups: Group[];
+}

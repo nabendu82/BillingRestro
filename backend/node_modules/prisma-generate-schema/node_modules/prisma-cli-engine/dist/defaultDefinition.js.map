@@ -1,0 +1,1 @@
+{"version":3,"file":"defaultDefinition.js","sourceRoot":"","sources":["../src/defaultDefinition.ts"],"names":[],"mappings":";;AAEa,QAAA,iBAAiB,GAAsB;IAClD,OAAO,EAAE;QACP;YACE,IAAI,EAAE,EAAE;YACR,OAAO,EAAE,osBAyCd;YACK,KAAK,EAAE;gBACL,iBAAiB,EAAE,igBAwB1B;gBACO,iBAAiB,EAAE,2HAOzB;gBACM,sBAAsB,EAAE,6GAQ/B;aACM;SACF;KACF;CACF,CAAA"}
