@@ -37,7 +37,7 @@ class Nav extends React.Component {
                 isOpen={this.state.menuOpen}
                 onStateChange={(state) => this.handleStateChange(state)}>
                 <Link href="/items">
-                    <StyledAnchor onClick={() => this.closeMenu()}>Items</StyledAnchor>
+                    <StyledAnchor onClick={() => this.closeMenu()}>Menu</StyledAnchor>
                 </Link>
                 <Link href="/adddish">
                     <StyledAnchor onClick={() => this.closeMenu()}>Add Dish</StyledAnchor>
