@@ -10,10 +10,10 @@ const Title = styled.h3`
     background: ${props => props.theme.red};
     display: inline;
     line-height: 1.3;
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
     color: white;
-    padding: 0 1rem;
+    padding: 0 .8rem;
   }
 `;
 

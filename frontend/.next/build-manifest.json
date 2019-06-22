@@ -11,11 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/adddish": [
+    "/items": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/items": [
+    "/adddish": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
