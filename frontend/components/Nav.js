@@ -45,6 +45,9 @@ class Nav extends React.Component {
                 <Link href="/signup">
                     <StyledAnchor onClick={() => this.closeMenu()}>Signup</StyledAnchor>
                 </Link>
+                <Link href="/signin">
+                    <StyledAnchor onClick={() => this.closeMenu()}>Sign In</StyledAnchor>
+                </Link>
                 <Link href="/orders">
                     <StyledAnchor onClick={() => this.closeMenu()}>Orders</StyledAnchor>
                 </Link>

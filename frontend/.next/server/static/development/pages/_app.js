@@ -412,7 +412,7 @@ function (_React$Component) {
         },
         __self: this
       }, "Signup")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-        href: "/orders",
+        href: "/signin",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 48
@@ -425,6 +425,22 @@ function (_React$Component) {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 49
+        },
+        __self: this
+      }, "Sign In")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        href: "/orders",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledAnchor, {
+        onClick: function onClick() {
+          return _this2.closeMenu();
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52
         },
         __self: this
       }, "Orders")));
