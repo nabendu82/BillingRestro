@@ -56,6 +56,9 @@ class Nav extends React.Component {
                         )}
                         {!data.me && (
                             <>
+                                <Link href="/reqreset">
+                                    <StyledAnchor onClick={() => this.closeMenu()}>Reset</StyledAnchor>
+                                </Link>
                                 <Link href="/signup">
                                     <StyledAnchor onClick={() => this.closeMenu()}>Signup</StyledAnchor>
                                 </Link>
