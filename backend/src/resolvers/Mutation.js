@@ -2,7 +2,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { randomBytes } = require('crypto');
 const { promisify } = require('util');
-const { transport, makeANiceEmail } = require('../mail');
+const { makeANiceEmail } = require('../mail');
+const nodemailer = require('nodemailer');
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 
 const Mutations = {
     async createItem(parent, args, ctx, info) {
@@ -80,8 +83,33 @@ const Mutations = {
             data: { resetToken, resetTokenExpiry }
         });
 
+                //Sending email through gmail with OAUTH2
+                const oauth2Client = new OAuth2(
+                    process.env.CLIENT_ID, // ClientID
+                    process.env.CLIENT_SECRET, // Client Secret
+                    "https://developers.google.com/oauthplayground" // Redirect URL
+                );
+
+                oauth2Client.setCredentials({
+                    refresh_token: process.env.REFRESH_TOKEN
+                });
+                const tokens = await oauth2Client.refreshAccessToken()
+                const accessToken = tokens.credentials.access_token
+
+                const transport = nodemailer.createTransport({
+                    service: "gmail",
+                    auth: {
+                         type: "OAuth2",
+                         user: "shikha.das1@gmail.com",
+                         clientId: process.env.CLIENT_ID,
+                         clientSecret: process.env.CLIENT_SECRET,
+                         refreshToken: process.env.REFRESH_TOKEN,
+                         accessToken: accessToken
+                    }
+                  });
+
         const mailRes = await transport.sendMail({
-            from: 'client1@billing.com',
+            from: 'shikha.das1@gmail.com',
             to: user.email,
             subject: 'Your Password Reset Token',
             html: makeANiceEmail(`Your Password Reset token is
