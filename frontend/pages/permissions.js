@@ -1,14 +1,14 @@
-import CreateItem from '../components/CreateItem';
 import PleaseSignIn from '../components/PleaseSignin';
+import Permissions from '../components/Permissions';
 
-const AddDish = () => {
+const PermissionsPage = () => {
     return (
         <div>
             <PleaseSignIn>
-                <CreateItem />
+                <Permissions />
             </PleaseSignIn>
         </div>
     )
 }
 
-export default AddDish;
+export default PermissionsPage;

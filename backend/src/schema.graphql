@@ -19,6 +19,7 @@ type Query {
     items: [Item]!
     item(where: ItemWhereUniqueInput!): Item
     me: User
+    users: [User]!
 }
 
 type User{

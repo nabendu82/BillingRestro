@@ -11,11 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/reqreset": [
+    "/permissions": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/signin": [
+    "/signup": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
