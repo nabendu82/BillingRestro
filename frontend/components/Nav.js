@@ -40,17 +40,35 @@ class Nav extends React.Component {
                     <Menu noOverlay width={280}
                         isOpen={this.state.menuOpen}
                         onStateChange={(state) => this.handleStateChange(state)}>
-                        <Link href="/items">
-                            <StyledAnchor onClick={() => this.closeMenu()}>Menu</StyledAnchor>
-                        </Link>
-                        {data.me && (
+                        { data.me && (
                             <>
-                                <Link href="/adddish">
-                                    <StyledAnchor onClick={() => this.closeMenu()}>Add Dish</StyledAnchor>
+                                <Link href="/items">
+                                    <StyledAnchor onClick={() => this.closeMenu()}>Menu</StyledAnchor>
                                 </Link>
                                 <Link href="/orders">
                                     <StyledAnchor onClick={() => this.closeMenu()}>Orders</StyledAnchor>
                                 </Link>
+                            </>
+                        )}
+                        {data.me && data.me.permissions.some(permission => ['ADMIN', 'ITEMCREATE'].includes(permission)) && (
+                            <>
+                                <Link href="/adddish">
+                                    <StyledAnchor onClick={() => this.closeMenu()}>Add Dish</StyledAnchor>
+                                </Link>
+                            </>
+                        )}
+                        {data.me && data.me.permissions.some(permission => ['ADMIN', 'PERMISSIONUPDATE'].includes(permission)) && (
+                            <>
+                                <Link href="/permissions">
+                                    <StyledAnchor onClick={() => this.closeMenu()}>Permissions</StyledAnchor>
+                                </Link>
+                                <Link href="/signup">
+                                    <StyledAnchor onClick={() => this.closeMenu()}>Signup</StyledAnchor>
+                                </Link>
+                            </>
+                        )}
+                        { data.me && (
+                            <>
                                 <Signout />
                             </>
                         )}
@@ -58,9 +76,6 @@ class Nav extends React.Component {
                             <>
                                 <Link href="/reqreset">
                                     <StyledAnchor onClick={() => this.closeMenu()}>Reset</StyledAnchor>
-                                </Link>
-                                <Link href="/signup">
-                                    <StyledAnchor onClick={() => this.closeMenu()}>Signup</StyledAnchor>
                                 </Link>
                                 <Link href="/signin">
                                     <StyledAnchor onClick={() => this.closeMenu()}>Sign In</StyledAnchor>

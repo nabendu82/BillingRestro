@@ -375,11 +375,11 @@ function (_React$Component) {
             lineNumber: 40
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        }, data.me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
           href: "/items",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 45
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledAnchor, {
@@ -388,11 +388,11 @@ function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 46
           },
           __self: this
-        }, "Menu")), data.me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-          href: "/adddish",
+        }, "Menu")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          href: "/orders",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 48
@@ -407,11 +407,13 @@ function (_React$Component) {
             lineNumber: 49
           },
           __self: this
-        }, "Add Dish")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-          href: "/orders",
+        }, "Orders"))), data.me && data.me.permissions.some(function (permission) {
+          return ['ADMIN', 'ITEMCREATE'].includes(permission);
+        }) && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          href: "/adddish",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 55
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledAnchor, {
@@ -420,33 +422,13 @@ function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 56
           },
           __self: this
-        }, "Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 54
-          },
-          __self: this
-        })), !data.me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-          href: "/reqreset",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 59
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledAnchor, {
-          onClick: function onClick() {
-            return _this2.closeMenu();
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 60
-          },
-          __self: this
-        }, "Reset")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-          href: "/signup",
+        }, "Add Dish"))), data.me && data.me.permissions.some(function (permission) {
+          return ['ADMIN', 'PERMISSIONUPDATE'].includes(permission);
+        }) && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          href: "/permissions",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 62
@@ -461,8 +443,8 @@ function (_React$Component) {
             lineNumber: 63
           },
           __self: this
-        }, "Signup")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-          href: "/signin",
+        }, "Permissions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          href: "/signup",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 65
@@ -475,6 +457,44 @@ function (_React$Component) {
           __source: {
             fileName: _jsxFileName,
             lineNumber: 66
+          },
+          __self: this
+        }, "Signup"))), data.me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 72
+          },
+          __self: this
+        })), !data.me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          href: "/reqreset",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 77
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledAnchor, {
+          onClick: function onClick() {
+            return _this2.closeMenu();
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 78
+          },
+          __self: this
+        }, "Reset")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          href: "/signin",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 80
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledAnchor, {
+          onClick: function onClick() {
+            return _this2.closeMenu();
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 81
           },
           __self: this
         }, "Sign In"))));
