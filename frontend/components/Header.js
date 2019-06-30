@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import Bill from './Bill';
 
 Router.events.on('routeChangeStart', (url) => {
     console.log(`Loading: ${url}`)
@@ -53,7 +54,7 @@ const Header = () => {
                     </Link>
                 </Logo>
             </div>
-            <div className="bill">Bill</div>
+            <Bill />
         </StyledHeader>
     )
 }
