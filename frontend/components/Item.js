@@ -7,6 +7,18 @@ import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
 import DeleteItem from './DeleteItem';
 import User from './User';
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
+import { CURRENT_USER_QUERY } from './User';
+
+const ADD_TO_CART_MUTATION = gql`
+  mutation addToCart($id: ID!) {
+    addToCart(id: $id) {
+      id
+      quantity
+    }
+  }
+`;
 
 export default class Item extends Component {
     static propTypes = {
@@ -19,11 +31,21 @@ export default class Item extends Component {
             <User>
                 {({ data }) => (
                     <ItemStyles>
-                        {item.image && <img src={item.image} alt={item.title} />}
-                        <Title>
-                            <a>{item.title}</a>
-                        </Title>
-                        <PriceTag>{formatMoney(item.price)}</PriceTag>
+                        <Mutation
+                            mutation={ADD_TO_CART_MUTATION}
+                            variables={{ id: item.id }}
+                            refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+                        >
+                            {(addToCart, { loading }) => (
+                                <span disabled={loading} onClick={addToCart} style={{ cursor: 'pointer' }}>
+                                    {item.image && <img src={item.image} alt={item.title} />}
+                                    <Title>
+                                        <a>{item.title}</a>
+                                    </Title>
+                                    <PriceTag>{formatMoney(item.price)}</PriceTag>
+                                </span>
+                            )}
+                        </Mutation>
                         <div className="buttonList">
                             {data.me && data.me.permissions.some(permission => ['ADMIN', 'ITEMUPDATE'].includes(permission)) && (
                                 <Link
