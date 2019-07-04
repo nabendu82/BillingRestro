@@ -23,44 +23,35 @@ const TOGGLE_CART_MUTATION = gql`
   }
 `;
 
+const Composed = adopt({
+    user: ({ render }) => <User>{render}</User>,
+    toggleCart: ({ render }) => <Mutation mutation={TOGGLE_CART_MUTATION}>{render}</Mutation>,
+    localState: ({ render }) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>,
+});
+
+
 const Bill = () => (
-  <User>
-    {({ data: { me } }) => {
-      if (!me) return null;
-      console.log(me);
-      return (
-        <Mutation mutation={TOGGLE_CART_MUTATION}>
-          {toggleCart => (
-            <Query query={LOCAL_STATE_QUERY}>
-              {({ data }) => (
-                <CartStyles open={data.cartOpen}>
-                  <header>
-                    <CloseButton title="close" onClick={toggleCart}>
-                      &times;
-                    </CloseButton>
-                    <Supreme>Bill</Supreme>
-                    <p>
-                      You have {me.cart.length} item
-                      {me.cart.length === 1 ? "" : "s"} to bill
-                    </p>
-                  </header>
-                  <ul>
-                    {me.cart.map(billItem => (
-                      <BillItem key={billItem.id} billItem={billItem} />
-                    ))}
-                  </ul>
-                  <footer>
-                    <p>{formatMoney(calcTotalPrice(me.cart))}</p>
-                    <SickButton>CheckOut</SickButton>
-                  </footer>
+    <Composed>
+        {({ user, toggleCart, localState }) => {
+            const me = user.data.me;
+            if (!me) return null;
+            return (
+                <CartStyles open={localState.data.cartOpen}>
+                    <header>
+                        <CloseButton title="close" onClick={toggleCart}>&times;</CloseButton>
+                        <Supreme>Bill</Supreme>
+                        <p>You have {me.cart.length} item{me.cart.length === 1 ? '' : 's'} to bill</p>
+                    </header>
+                    <ul>{me.cart.map(billItem => <BillItem key={billItem.id} billItem={billItem} />)}</ul>
+                    <footer>
+                        <p>{formatMoney(calcTotalPrice(me.cart))}</p>
+                        <SickButton>CheckOut</SickButton>
+                    </footer>
                 </CartStyles>
-              )}
-            </Query>
-          )}
-        </Mutation>
-      );
-    }}
-  </User>
+
+            )
+        }}
+    </Composed>
 );
 
 export default Bill;
