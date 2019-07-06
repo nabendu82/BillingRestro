@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import Bill from './Bill';
+import Search from './Search';
 
 Router.events.on('routeChangeStart', (url) => {
     console.log(`Loading: ${url}`)
@@ -38,24 +39,34 @@ const StyledHeader = styled.div`
         justify-self: end;
         margin-right: 1rem;
     }
+`;
 
+const SubBar = styled.div`
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-bottom: 1px solid ${props => props.theme.lightgrey};
 `;
 
 const Header = () => {
     return (
-        <StyledHeader>
-            <div className="bar">
-                <Nav />
-            </div>
-            <div>
-                <Logo>
-                    <Link href="/">
-                        <a>Billing Restro</a>
-                    </Link>
-                </Logo>
-            </div>
-            <Bill />
-        </StyledHeader>
+        <>
+            <StyledHeader>
+                <div className="bar">
+                    <Nav />
+                </div>
+                <div>
+                    <Logo>
+                        <Link href="/">
+                            <a>Billing Restro</a>
+                        </Link>
+                    </Logo>
+                </div>
+                <Bill />
+            </StyledHeader>
+            <SubBar>
+                <Search />
+            </SubBar>
+        </>
     )
 }
 
