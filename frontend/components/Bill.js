@@ -10,6 +10,7 @@ import SickButton from "./styles/SickButton";
 import calcTotalPrice from "../lib/calcTotalPrice";
 import formatMoney from "../lib/formatMoney";
 import BillItem from "./BillItem";
+import TakeMyMoney from './TakeMyMoney';
 
 const LOCAL_STATE_QUERY = gql`
   query {
@@ -45,7 +46,9 @@ const Bill = () => (
                     <ul>{me.cart.map(billItem => <BillItem key={billItem.id} billItem={billItem} />)}</ul>
                     <footer>
                         <p>{formatMoney(calcTotalPrice(me.cart))}</p>
-                        <SickButton>CheckOut</SickButton>
+                        <TakeMyMoney>
+                            <SickButton>CheckOut</SickButton>
+                        </TakeMyMoney>
                     </footer>
                 </CartStyles>
 
