@@ -18,7 +18,7 @@ server.express.use((req, res, next) => {
 });
 
 server.express.use(async (req, res, next) => {
-  // if they aren't logged in, skip this
+  // if they aren't logged in, skip
   if (!req.userId) return next();
   const user = await db.query.user(
     { where: { id: req.userId } },
