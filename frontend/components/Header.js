@@ -34,6 +34,7 @@ const StyledHeader = styled.div`
     align-items: center;
     .bar{
         justify-self: start;
+        height: 100%;
     }
     .bill{
         justify-self: end;
