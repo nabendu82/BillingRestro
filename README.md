@@ -44,10 +44,13 @@ After adding some items by either way, click on hamburger menu and the **BILL**
 
 Now, click on **CHECKOUT** button, to save the order in Prisma database and also shown in ORDERS page. You can also delete an item in BILL by clicking **X** beside the item. 
 
+### Deploy in Heroku
+Details on deployment in Heroku can be found in the medium article [Deploying React NextJS GraphQL App in Heroku](https://medium.com/@nabendu82/deploying-react-nextjs-graphql-app-in-heroku-52472805d75e)
+
 ------------
 
 
-You can checkout the heroku deployed project [here](https://restropos-nextjs-prod.herokuapp.com/)
-> Login credentials for Normal User: normal@gmail.com/Normal123
+You can checkout the heroku deployed project [here](https://billingrestro-react-prod.herokuapp.com)
+> Login credentials for Normal User: normal@gmail.com/normal
 
 ------------
